@@ -1,13 +1,13 @@
 import functools
 
 
-user = {"username": "Joes", "access_level": "guest"}
+user = {"username": "Joes", "access_level": "admin"}
 
 def make_secure(func):
     @functools.wraps(func)
-    def secure_func():
+    def secure_func(*args, **kwargs):
         if user["access_level"] == "admin":
-            return func()
+            return func(*args, **kwargs)
         else:
             return "Unauthorized"
         
@@ -15,13 +15,12 @@ def make_secure(func):
 
 
 @make_secure
-def get_admin_password():
-    return "admin123"
+def get_password(panel):
+    if panel == "admin":
+        return "admin123"
+    elif panel == "billing":
+        return "billing123"
 
 
 
-print(get_admin_password())
-user = {"username": "Joes", "access_level": "admin"}
-print(get_admin_password())
-
-print(get_admin_password.__name__)
+print(get_password("billing"))
