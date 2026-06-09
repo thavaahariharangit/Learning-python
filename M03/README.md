@@ -128,3 +128,40 @@ flask run
 ```
 Server started
 
+
+### My First Rest API
+
+```
+from flask import Flask
+
+app = Flask(__name__)
+
+stores = [
+    {
+        'name': 'My Store',
+        'items': [
+            {
+                'name': 'My Item',
+                'price': 15.99
+            }
+        ]
+    }
+]
+
+@app.get('/store')
+def get_stores():
+    return {'stores': stores}
+```
+
+### What is JSON
+
+Long string with specific format which can include
+- Strings
+- Numbers
+- Booleans (`true` or `false`)
+- Lists
+- Objects (akin to dictionaries in python)
+
+Top level json can be a List or objects
+
+### How to interact with and test your REST API
