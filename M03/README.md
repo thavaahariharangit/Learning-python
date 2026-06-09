@@ -89,3 +89,42 @@ Response
     }
 ]
 ```
+
+### Getting set up
+
+Create a python virtual env
+```
+$ python -m venv .venv
+```
+
+Tell the vscode which env to use
+Cmd + Shift + P
+Select Interpretter
+Find the path
+reopen terminal
+
+```
+@thavaahariharangit ➜ /workspaces/Learning-python (main) $  source /workspaces/Learning-python/M03/Recording/.venv/bin/activate
+(.venv) @thavaahariharangit ➜ /workspaces/Learning-python (main) $ 
+```
+
+Install flask
+```
+$ pip install flask
+```
+
+create app.py
+```
+from flask import Flask
+
+app = Flask(__name__)
+```
+
+run the app
+```
+flask run
+
+* Running on http://127.0.0.1:5000
+```
+Server started
+
